@@ -1,4 +1,4 @@
-import artiulos, { articulos } from "../models/articulosmodels.js";
+import artiulos from "../models/articulosmodels.js";
 import {articulosDTO} from "../dtos/articulos.dtos.js"
 
 //crear un articulo

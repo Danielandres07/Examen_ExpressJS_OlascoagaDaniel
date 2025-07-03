@@ -2,14 +2,14 @@ import express from "express"
 import mongoose from "mongoose"
 import  session from "express-session"
 import { PORT, HOSTNAME, MONGO_URL, } from './src/utils/secret.js';
-import articulosRoutes from './src/routes/articulosRoutes.js';
-import { secret } from './src/utils/secret.js'; 
+import articulosRoutes from './src/routers/articulosrouters.js';
+import categoriaRouter from './src/routers/categoriarouters.js'
+import { secret } from './src/utils/secret.js';
 
 
 
 const app = express();
 app.use(express.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
@@ -18,6 +18,7 @@ app.get('/', (req, res) => {
 
 
 app.use('/articulos', articulosRoutes);
+app.use('/categoria', categoriaRouter)
 
 
 

@@ -1,36 +1,26 @@
-db.createCollection("categories",  {
-  validator: {
-    $jsonSchema: {
-      bsonType: "object",
-      required: ["code", "name", "active"],
-      properties: {
-        code: {
-          bsonType: "string",
-          maxLength: 10,
-          description: "Código único de la categoría"
-},
-  name: {
-    bsonType: "string",
-    maxLength: 60,
-    description: "Nombre de la categoría"
-},
+import mongoose from 'mongoose';
 
-  active:{
-    bsonType:"int",
-    minimum:0,
-    maximum:1,
-    description:"indica si el registro esta activo(1) o inactivo (0)"
-},
-code: {
-    bsonType: "string",
-    maxLength: 10,
-    description: "codigo unico de la categoria"
-     }
-    }
-   }
+const categorySchema = new mongoose.Schema({
+  code: {
+    type: String,
+    required: true,
+    unique: true,
+    maxlength: 10,
+    trim: true
+  },
+  name: {
+    type: String,
+    required: true,
+    maxlength: 60,
+    trim: true
+  },
+  active: {
+    type: Number,
+    required: true,
+    enum: [0, 1],
   }
 });
 
-db.createCollection("warehouse",{
+const Category = mongoose.model('Category', categorySchema);
 
-})
+export default Category;

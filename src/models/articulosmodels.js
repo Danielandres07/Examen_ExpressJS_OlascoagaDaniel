@@ -1,10 +1,10 @@
-import mongoose from"mongoose";
+import mongoose from "mongoose";
 
-
-const artiulosShema= new mongoose.Shema({
-    code: {type: String,required:true,unique: true},
-    name:{ type: String,requiered :true,unique:true}
+const articulosSchema = new mongoose.Schema({
+  code: { type: String, required: true, unique: true },
+  name: { type: String, required: true, unique: true }
 });
 
-export const articulos= mongoose.model("articulos",artiulosShema);
-export default articulos;
+const Articulo = mongoose.model("Articulo", articulosSchema);
+
+export default Articulo;
