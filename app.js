@@ -4,6 +4,7 @@ import  session from "express-session"
 import { PORT, HOSTNAME, MONGO_URL, } from './src/utils/secret.js';
 import articulosRoutes from './src/routers/articulosrouters.js';
 import categoriaRouter from './src/routers/categoriarouters.js'
+import warehousesRouter from './src/routers/warehousesrouters.js'
 import { secret } from './src/utils/secret.js';
 
 
@@ -18,7 +19,8 @@ app.get('/', (req, res) => {
 
 
 app.use('/articulos', articulosRoutes);
-app.use('/categoria', categoriaRouter)
+app.use('/categoria', categoriaRouter);
+app.use('/warehouses', warehousesRouter)
 
 
 
